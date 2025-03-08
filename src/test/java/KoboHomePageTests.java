@@ -73,10 +73,21 @@ public class KoboHomePageTests {
         assertEquals("Endurance", title, "Title of page was: " + title);
     }
 
+    @DisplayName("Create Account")
+    @Test
+    public void createAccount() {
+        log.info("Create Account");
+        homePage.setCreateAccount();
+        homePage.createAccountErrors();
+        boolean isErrorsDisplayed = homePage.createAccountErrors();
+        assertTrue(isErrorsDisplayed, "Errors are not displayed");
 
-//    @AfterEach
-//    public void tearDown() {
-//        BrowserManager.closeDriver();
-//    }
+    }
+
+
+    @AfterEach
+    public void tearDown() {
+        BrowserManager.closeDriver();
+    }
 }
 

@@ -1,6 +1,7 @@
 package org.automation.framework;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -54,8 +55,15 @@ public void waitImplicit(int timeOut) {
         browserManager.getDriver().manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
     }
 
-    public void VK_BACK_SPACE(By locator) {
-        browserManager.getDriver().findElement(locator).sendKeys(Keys.BACK_SPACE);
+    public void hoverElement(By locator, WebDriver driver) {
+        Actions actions = new Actions(driver);
+        WebElement element = driver.findElement(locator);
+        actions.moveToElement(element).build().perform();
     }
+
+    public boolean isElementEnabled(By locator) {
+        return browserManager.getDriver().findElement(locator).isEnabled();
+    }
+
 
 }

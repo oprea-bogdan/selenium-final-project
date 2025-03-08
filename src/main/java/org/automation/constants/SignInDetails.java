@@ -2,7 +2,7 @@ package org.automation.constants;
 
 public enum SignInDetails {
 
-    SIGNIN_USER("testbogdantudor@gmail.com", "Testproject_2024"),;
+    SIGNIN_USER("testbogdantudor@gmail.com", "T"),;
 
     private final String username;
     private String password;

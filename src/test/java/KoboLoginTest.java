@@ -24,6 +24,9 @@ public class KoboLoginTest {
     @DisplayName("Verify if user can insert email and password")
     public void loginKobo() {
         login.signInKobo();
+        login.errorDisplayed();
+        assertTrue(login.errorDisplayed(), "Error message is not displayed");
+
     }
 
     @Test
