@@ -1,3 +1,5 @@
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.automation.constants.ProductDetails;
@@ -9,11 +11,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
-import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -29,6 +29,7 @@ public class KoboHomePageTests {
         homePage.openHomePage();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Search by multiple book titles")
     @ParameterizedTest
     @EnumSource(ProductDetails.class)
@@ -40,6 +41,7 @@ public class KoboHomePageTests {
         assertTrue(results.get(0).getText().contains(product.getProduct()), "I found item: " + results.get(0).getText());
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Search by Book Id")
     @Test
     public void searchTest() {
@@ -51,6 +53,7 @@ public class KoboHomePageTests {
 
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Search by Book author")
     @Test
     public void searchTestAuthor() {

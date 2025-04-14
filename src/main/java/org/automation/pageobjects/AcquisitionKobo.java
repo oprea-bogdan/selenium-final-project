@@ -13,10 +13,10 @@ public class AcquisitionKobo {
 
     private final static By EBOOKS_SECTION = By.xpath("//button[@id='shop-ebooks']");
     private final static By RANDOM_PRODUCT = By.xpath("(//div[@class='item-container '])[3]");
-    private final static By ADD_TO_WISHLIST = By.xpath("/html/body/div[3]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/button[3]");
+    private final static By ADD_TO_WISHLIST = By.xpath("(//button[@class='purchase-action add-to-wishlist'])[2]");
     private final static By SIGN_IN_PAGE = By.xpath("//*[@id=\"defaultOptions\"]/h1");
     private final static By GDPR_DECLINE = By.xpath("//button[@class='secondary-gdpr-button']");
-    private final static By EREADER = By.xpath("//*[@id=\"link-nav-showdevices\"]");
+    private final static By EREADER = By.xpath("//li[@class='navbar-tab link-nav-showdevices']");
     private final static By SEARCH_EREADER_BUTTON = By.xpath("//a[@class='browse']");
     private final static By PRODUCT_DETAILS = By.xpath("(//a[@class='w-fc button-primary '])[2]");
     private final static By ADD_TO_CART = By.xpath("//*[@id=\"AddToCart\"]");
@@ -47,13 +47,14 @@ public class AcquisitionKobo {
 
     public void addReaderToCart() {
         log.info("Add reader to cart");
+        actions.waitElementToBeClickable(GDPR_DECLINE, 10);
         actions.clickElement(GDPR_DECLINE);
-        actions.hoverElement(EREADER, manager.getDriver());
-        actions.waitFluentElementVisible(EREADER, 5);
+        actions.waitImplicit(3);
         actions.clickElement(EREADER);
-        actions.waitImplicit(2);
-        actions.clickElement(EREADER);
+        actions.waitImplicit(3);
+        actions.clickElement(GDPR_DECLINE);
         actions.clickElement(SEARCH_EREADER_BUTTON);
+        actions.waitElementToBeClickable(PRODUCT_DETAILS, 10);
         actions.clickElement(PRODUCT_DETAILS);
         actions.clickElement(ADD_TO_CART);
         actions.clickElement(CART);

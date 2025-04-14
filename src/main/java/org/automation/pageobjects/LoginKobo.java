@@ -32,7 +32,7 @@ public class LoginKobo {
     public void openLoginKobo() {
         log.info("Open Kobo login page");
         manager.openBrowser();
-        manager.getDriver().get("https://authorize.kobo.com/ro/en/signin/signin/kobo?workflowId=20929809-b392-4d73-bbe7-a64d4aba061b");
+        manager.getDriver().get("https://authorize.kobo.com/ro/en/Signin?returnUrl=https%3a%2f%2fwww.kobo.com%2f");
         manager.getDriver().manage().window().maximize();
     }
 

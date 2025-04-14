@@ -23,9 +23,6 @@ public class HomePage {
     private final static By GDPR_DECLINE = By.xpath("//button[@class='secondary-gdpr-button']");
     private final static By COVER_TITLE = By.xpath("//*[@id=\"instantpreview-reading-area-container\"]/div[1]/span");
     private final static By CREATE_ACCOUNT = By.xpath("//a[@aria-label='Create account']");
-    private final static By EMAIL_ADDRESS = By.xpath("//input[@aria-label='Email address']");
-    private final static By CONFIRM_EMAIL = By.xpath("//input[@aria-label='Confirm email address']");
-    private final static By PASSWORD = By.xpath("//input[@aria-label='Password']");
     private final static By CONTINUE_BUTTON = By.xpath("//*[@id=\"registerBlock\"]/button");
     private final static By EMAIL_ERROR = By.xpath("//span[@for='RegisterByCredentialsModel_UserName']");
     private final static By CONFIRM_EMAIL_ERROR = By .xpath("//span[@for='RegisterByCredentialsModel_ConfirmUserName']");

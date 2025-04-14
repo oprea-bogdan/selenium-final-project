@@ -3,9 +3,6 @@ import org.apache.logging.log4j.Logger;
 import org.automation.framework.BrowserManager;
 import org.automation.pageobjects.LoginKobo;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,8 +18,9 @@ public class KoboLoginTest {
     }
 
     @Test
-    @DisplayName("Verify if user can insert email and password")
+    @DisplayName("Verify if error messages are displayed")
     public void loginKobo() {
+        log.info("Verify if error messages are displayed");
         login.signInKobo();
         login.errorDisplayed();
         assertTrue(login.errorDisplayed(), "Error message is not displayed");
@@ -32,6 +30,7 @@ public class KoboLoginTest {
     @Test
     @DisplayName("Verify if the privacy policy is accessible")
     public void privacyPolicy() {
+        log.info("Verify if the privacy policy is accessible");
         login.clickPrivacyPolicy();
         login.getPrivacyPolicy();
         String subtitle = login.getPrivacyPolicy();
@@ -41,6 +40,8 @@ public class KoboLoginTest {
     @Test
     @DisplayName("Verify if the Header is displayed")
     public void headerDisplayed() {
+        log.info("Verify if the Header is displayed");
+        login.isHeaderDisplayed();
     assertTrue(login.isHeaderDisplayed(), "Header is not displayed");
     }
 
